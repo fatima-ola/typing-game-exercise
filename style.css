@@ -1,20 +1,13 @@
 body{
     padding: 0;
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .maincontainer{
-    /* padding-top: 250px;
+    padding-top: 220px;
     margin: 0 auto;
-    text-align: center; */
- 
-    
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-   
+    text-align: center;
 }
 
 .highlight{
@@ -24,4 +17,13 @@ body{
 .error{
     background-color: lightcoral;
     border: red;
+}
+
+h1{
+ color: seagreen;
+ font-size: 2.4rem;
+}
+
+p{
+    font-size: 1.3rem;
 }
