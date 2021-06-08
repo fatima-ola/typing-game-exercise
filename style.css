@@ -1,0 +1,27 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.maincontainer{
+    /* padding-top: 250px;
+    margin: 0 auto;
+    text-align: center; */
+ 
+    
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+
+.highlight{
+    background-color: yellow;
+}
+
+.error{
+    background-color: lightcoral;
+    border: red;
+}
