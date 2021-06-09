@@ -11,7 +11,19 @@ let allQuotes = [
     'A good detective knows that every task, every interaction, no matter how seemingly banal, has the potential to contain multitudes.',
 ];
 
-let currentQuote = [];
+let currentWordQuote = [];
 
-let currentWord = "";
+let wordIndex = 0;
+
+let startTime = Date.now();
+
+const quoteElment = document.getElementById('quote');
+
+const textElement = document.getElementById('typed-value');
+
+const displayMessage = document.getElementById('message');
+
+document.getElementById('start').addEventListener('click', ()=>{
+    
+})
 
