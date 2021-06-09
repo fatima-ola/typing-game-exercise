@@ -17,13 +17,33 @@ let wordIndex = 0;
 
 let startTime = Date.now();
 
-const quoteElment = document.getElementById('quote');
+const quoteElement = document.getElementById('quote');
 
 const textElement = document.getElementById('typed-value');
 
 const displayMessage = document.getElementById('message');
 
 document.getElementById('start').addEventListener('click', ()=>{
-    
-})
+   const quoteIndex = Math.floor(Math.random() * allQuotes.length);
+   const quote = allQuotes[quoteIndex];
+   console.log(quote); 
+   words = quote.split(' ');  // [A, good, detective, ....]
+   console.log(words);
+   wordIndex = 0;
+
+   const spanWords = words.map((word)=>{
+        // return `<span>${word}</span>`;
+        console.log(`<span>${word}</span>`) //array of words
+   })
+   console.log(spanWords.join(' '))
+
+   quoteElement.innerHTML = spanWords.join('');   
+   quoteElement.childNodes[0].className = 'highlight';
+   displayMessage.innerText = '';
+
+   textElement.value = '';
+   textElement.focus();
+
+   startTime = new Date().getTime();
+});
 
