@@ -35,8 +35,7 @@ document.getElementById('start').addEventListener('click', ()=>{
         // return `<span>${word}</span>`;
         console.log(`<span>${word}</span>`) //array of words
    })
-   console.log(spanWords.join(' '))
-
+  
    quoteElement.innerHTML = spanWords.join('');   
    quoteElement.childNodes[0].className = 'highlight';
    displayMessage.innerText = '';
@@ -46,4 +45,16 @@ document.getElementById('start').addEventListener('click', ()=>{
 
    startTime = new Date().getTime();
 });
+
+
+textElement.addEventListener('input', () =>{
+    const currentWord = words[wordIndex];
+    const currentTypedValue = textElement.value;
+
+    if(currentTypedValue === currentWord && wordIndex === words.length -1){
+        const elapsedTime = new Date().getTime - startTime;
+        const message = `CONGRATULATIONS! You Finished in ${elapsedTime / 1000} seconds.`
+        displayMessage.innerHTML = message;
+    }
+})
 
