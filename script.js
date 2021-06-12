@@ -25,8 +25,8 @@ const displayMessage = document.getElementById('message');
 
 document.getElementById('start').addEventListener('click', ()=>{
    const quoteIndex = Math.floor(Math.random() * allQuotes.length);
-   const quote = allQuotes[quoteIndex];
-   currentWords = quote.split(' ');  // [A, good, detective, ....]
+   const quote = allQuotes[quoteIndex]; //"A good detective ...."
+   currentWords = quote.split(' ');  // ['A', 'good', 'detective', ....]
    wordIndex = 0;
 
    const spanWords = currentWords.map((currentWord)=>{
