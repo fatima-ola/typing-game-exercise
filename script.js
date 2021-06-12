@@ -53,6 +53,8 @@ textElement.addEventListener('input', (e) =>{
         const message = `CONGRATULATIONS! You Finished in ${elapsedTime / 1000} seconds.`
         displayMessage.innerHTML = message;
         displayMessage.className = 'success';
+        textElement.value = '';
+        textElement.disabled = true;
         
     }else if (currentTypedValue.endsWith(' ') && currentTypedValue.trim() === theCurrentWord){
         textElement.value = '';
