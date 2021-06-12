@@ -50,7 +50,9 @@ textElement.addEventListener('input', (e) =>{
 
     if(currentTypedValue === theCurrentWord && wordIndex === currentWords.length -1){
         const elapsedTime = new Date().getTime() - startTime;
-        const message = `CONGRATULATIONS! You Finished in ${elapsedTime / 1000} seconds.`
+        const timeInSeconds = elapsedTime / 1000;
+        localStorage.setItem('highestScore', `${timeInSeconds} Seconds`);
+        const message = `CONGRATULATIONS! You Finished in ${timeInSeconds} seconds.`
         displayMessage.innerHTML = message;
         displayMessage.className = 'success';
         textElement.value = '';
@@ -75,6 +77,7 @@ textElement.addEventListener('input', (e) =>{
         displayMessage.className = 'fail';
         textElement.className = 'error';
     }
+
 });
 
 
