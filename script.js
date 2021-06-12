@@ -11,7 +11,7 @@ let allQuotes = [
     'A good detective knows that every task, every interaction, no matter how seemingly banal, has the potential to contain multitudes.',
 ];
 
-let currentWordQuote = [];
+let currentWords = [];
 
 let wordIndex = 0;
 
@@ -26,35 +26,53 @@ const displayMessage = document.getElementById('message');
 document.getElementById('start').addEventListener('click', ()=>{
    const quoteIndex = Math.floor(Math.random() * allQuotes.length);
    const quote = allQuotes[quoteIndex];
-   console.log(quote); 
-   words = quote.split(' ');  // [A, good, detective, ....]
-   console.log(words);
+   currentWords = quote.split(' ');  // [A, good, detective, ....]
    wordIndex = 0;
 
-   const spanWords = words.map((word)=>{
-        // return `<span>${word}</span>`;
-        console.log(`<span>${word}</span>`) //array of words
-   })
-  
-   quoteElement.innerHTML = spanWords.join('');   
-   quoteElement.childNodes[0].className = 'highlight';
-   displayMessage.innerText = '';
+   const spanWords = currentWords.map((currentWord)=>{
+       return `<span>${currentWord} </span>`
+   });
 
-   textElement.value = '';
-   textElement.focus();
+    quoteElement.innerHTML = spanWords.join('');
+    quoteElement.childNodes[0].className = 'highlight';
+    displayMessage.innerText = '';
+    textElement.value = '';
+    textElement.focus();
+  
 
    startTime = new Date().getTime();
 });
 
 
-textElement.addEventListener('input', () =>{
-    const currentWord = words[wordIndex];
+textElement.addEventListener('input', (e) =>{
+    const theCurrentWord = currentWords[wordIndex];
     const currentTypedValue = textElement.value;
 
-    if(currentTypedValue === currentWord && wordIndex === words.length -1){
-        const elapsedTime = new Date().getTime - startTime;
+    if(currentTypedValue === theCurrentWord && wordIndex === currentWords.length -1){
+        const elapsedTime = new Date().getTime() - startTime;
         const message = `CONGRATULATIONS! You Finished in ${elapsedTime / 1000} seconds.`
         displayMessage.innerHTML = message;
+        displayMessage.className = 'success';
+        
+    }else if (currentTypedValue.endsWith(' ') && currentTypedValue.trim() === theCurrentWord){
+        textElement.value = '';
+        wordIndex++;
+
+        for(const wordElement of quoteElement.childNodes) {
+            wordElement.className = '';
+        }
+
+        quoteElement.childNodes[wordIndex].className = 'highlight';
+
+    }else if(theCurrentWord.startsWith(currentTypedValue)) {
+        textElement.className = '';
+    }else {
+        const elapsedTime = new Date().getTime() - startTime;
+        const message = `SORRY YOU GOT IT WRONG! You Finished in ${elapsedTime / 1000} seconds.`
+        displayMessage.innerHTML = message;
+        displayMessage.className = 'fail';
+        textElement.className = 'error';
     }
-})
+});
+
 

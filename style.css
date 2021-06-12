@@ -19,6 +19,26 @@ body{
     border: red;
 }
 
+.success{
+    color: rgb(23, 123, 23);
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+.fail{
+    color: rgb(242, 95, 37);
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: blinker 1s linear infinite;
+}
+
 h1{
  color: seagreen;
  font-size: 2.4rem;
